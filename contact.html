@@ -5,15 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me - Krishan Himesh Abeyrathne</title>
     <link rel="stylesheet" href="styles.css">
-    <script>
-        function sendEmail() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            const subject = `Contact Form Submission from ${name}`;
-            const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-            window.location.href = `mailto:your.email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        }
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            // Initialize EmailJS with the Public Key
+            emailjs.init("APi_ENA19Ymke5qUI"); // Replace with your EmailJS Public Key
+        })();
+
+        function sendEmail(event) {
+    event.preventDefault();
+
+    // Collect form data
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    // EmailJS parameters
+    const templateParams = {
+        from_name: name,
+        from_email: email,
+        message: message,
+    };
+
+    // Send email with EmailJS
+    emailjs.send("service_1m0rsbz", "__ejs-test-mail-service__", templateParams)
+        .then(function(response) {
+            console.log("SUCCESS!", response.status, response.text); // Log success
+            alert("Your message was sent successfully!");
+            document.getElementById('contactForm').reset();
+        }, function(error) {
+            console.error("FAILED...", error); // Log detailed error
+            alert("There was an error sending your message. Please try again later.");
+        });
+}
+
     </script>
 </head>
 <body>
@@ -27,7 +52,7 @@
         </nav>
     </header>
     <main>
-        <form onsubmit="sendEmail(); return false;">
+        <form id="contactForm" onsubmit="sendEmail(event)">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email:</label>
