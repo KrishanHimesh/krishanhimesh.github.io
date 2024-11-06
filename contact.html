@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me - Krishan Himesh Abeyrathne</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function sendEmail() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const subject = `Contact Form Submission from ${name}`;
+            const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+            window.location.href = `mailto:your.email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -17,7 +27,7 @@
         </nav>
     </header>
     <main>
-        <form action="send_email.php" method="post">
+        <form onsubmit="sendEmail(); return false;">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email:</label>
