@@ -8,8 +8,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Header and Footer */
-
 /* Header with Background Image */
 header {
     background-image: url('images/InformationSecurity.jpg'); /* Use the path to the uploaded image */
@@ -55,6 +53,34 @@ header p {
     animation-delay: 1s;
 }
 
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    font-size: 0.9em;
+    position: fixed; /* Makes the footer fixed at the bottom of the page */
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+    margin: 0;
+    color: #f0f0f0; /* Lighter color for better readability */
+}
+
+footer a {
+    color: #f0a500;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ffd700; /* Slightly brighter color on hover */
+}
+
+
 nav {
     position: relative;
     z-index: 2;
@@ -62,27 +88,6 @@ nav {
     animation: fadeIn 1.5s ease-in-out forwards;
     animation-delay: 1.5s;
     opacity: 0;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(-20px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-
-header, footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1em;
-}
-
-header h1, footer p {
-    margin: 0;
-}
-
-nav {
     display: flex;
     justify-content: center;
     gap: 1em;
@@ -107,7 +112,7 @@ main {
 }
 
 h1, h2 {
-    color: #333;
+    color: gold;
     margin-top: 0;
 }
 
@@ -126,7 +131,7 @@ h1, h2 {
     border: 2px solid #333;
     border-radius: 10px;
     background-color: #fff;
-    text-align: left;
+    text-align: justify;
 }
 
 .box h2 {
@@ -138,6 +143,77 @@ h1, h2 {
     margin-top: 1em;
     line-height: 1.6;
 }
+/* Profile Section */
+.profile-section {
+    display: flex;
+    justify-content: center;
+    padding: 2em;
+    background-color: #f9f9f9;
+}
+
+/* Box Style */
+.box {
+    max-width: 800px;
+    padding: 2em;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #fff;
+    text-align: left;
+}
+
+/* Profile Content for Side-by-Side Layout */
+.profile-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5em;
+    margin-top: 1em;
+}
+
+/* Photo Box Styling */
+.photo-box {
+    width: 150px; /* Adjust width as needed */
+    height: 150px; /* Adjust height as needed */
+    overflow: hidden;
+    border-radius: 8px;
+    border: 2px solid #005f73; /* Dark teal border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* About Text Styling */
+.about-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    padding: 0.8em 1.5em;
+    margin-top: 1.5em;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #f0a500;
+}
+
+
+
 
 /* Button */
 .btn {
@@ -161,12 +237,11 @@ h1, h2 {
 .project {
     background-color: #fff;
     padding: 2em;
-    margin-bottom: 2em;
+    margin: 2em auto;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: left;
     max-width: 800px;
-    margin: 2em auto;
 }
 
 .project h2 {
@@ -255,8 +330,8 @@ form .btn {
 }
 
 @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideIn {
