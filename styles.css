@@ -10,7 +10,7 @@ body {
 
 /* Header with Background Image */
 header {
-    background-image: url('images/InformationSecurity.jpg'); /* Use the path to the uploaded image */
+    background-image: url('files/InformationSecurity.jpg'); /* Use the path to the uploaded image */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -195,10 +195,16 @@ h1, h2 {
 }
 
 /* Button */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1em; /* Space between buttons */
+    margin-top: 1.5em;
+}
+
 .btn {
     display: inline-block;
     padding: 0.8em 1.5em;
-    margin-top: 1.5em;
     background-color: #333;
     color: #fff;
     text-decoration: none;
