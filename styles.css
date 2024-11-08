@@ -128,7 +128,7 @@ h1, h2 {
 .box {
     max-width: 600px;
     padding: 2em;
-    border: 2px solid #333;
+    border: 0.5px solid #333;
     border-radius: 10px;
     background-color: #fff;
     text-align: justify;
@@ -171,19 +171,19 @@ h1, h2 {
 
 /* Photo Box Styling */
 .photo-box {
-    width: 150px; /* Adjust width as needed */
-    height: 150px; /* Adjust height as needed */
-    overflow: hidden;
-    border-radius: 8px;
-    border: 2px solid #005f73; /* Dark teal border */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    margin: 1em 0; /* Space around the photo */
 }
 
 .photo-box img {
-    width: 100%;
-    height: 100%;
+    border-radius: 50%; /* Makes the photo circular */
+    width: 150px; /* Adjust as desired */
+    height: 150px;
     object-fit: cover;
-    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a soft shadow */
+}
+
 }
 
 /* About Text Styling */
