@@ -178,8 +178,8 @@ h1, h2 {
 
 .photo-box img {
     border-radius: 50%; /* Makes the photo circular */
-    width: 150px; /* Adjust as desired */
-    height: 150px;
+    width: 250px; /* Adjust as desired */
+    height: 250px;
     object-fit: cover;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a soft shadow */
 }
