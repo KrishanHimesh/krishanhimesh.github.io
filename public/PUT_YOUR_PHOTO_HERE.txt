@@ -1,0 +1,12 @@
+Drop your photo file into this folder and name it:
+
+  krishan.jpg
+
+That's it. When you run `npm run deploy` it will be live at:
+  https://krishanhimesh.github.io/krishan.jpg
+
+Also put your Resume PDF here:
+  KrishanHimeshAbeyrathne.pdf
+
+It will be live at:
+  https://krishanhimesh.github.io/KrishanHimeshAbeyrathne.pdf

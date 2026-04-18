@@ -1,0 +1,428 @@
+/* ── HERO ─────────────────────────────────────────── */
+.hero {
+  padding: 120px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 40%, rgba(56, 189, 248, 0.10) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 30% 80%, rgba(129, 140, 248, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-greeting {
+  margin-bottom: 16px;
+}
+
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  white-space: nowrap;
+}
+
+.name-accent {
+  color: var(--accent);
+  -webkit-text-stroke: 1px var(--accent);
+}
+
+.hero-role {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 24px;
+  border-left: 2px solid var(--accent);
+  padding-left: 14px;
+}
+
+.hero-bio {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 480px;
+  margin-bottom: 36px;
+  line-height: 1.8;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.hero-socials {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.social-link:hover {
+  color: var(--accent);
+}
+
+/* Photo card */
+.hero-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.photo-card {
+  position: relative;
+  width: 260px;
+  flex-shrink: 0;
+}
+
+.photo-frame {
+  width: 100%;
+  border-radius: 20px;
+  overflow: visible;
+  border: 1px solid var(--border);
+  position: relative;
+  z-index: 2;
+  background: var(--surface);
+  line-height: 0;
+  border-radius: 20px;
+}
+
+.photo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+  object-fit: contain;
+}
+
+.photo-fallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--accent);
+  background: var(--surface);
+}
+
+.photo-card-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: 21px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  z-index: 1;
+  opacity: 0.3;
+  filter: blur(14px);
+  transform: translateY(10px) scale(0.94);
+  pointer-events: none;
+}
+
+/* Rings are purely decorative circles centred on the photo frame */
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid;
+  pointer-events: none;
+  z-index: 0;
+  /* Centre on the photo frame horizontally; vertically anchor to top of frame */
+  left: 50%;
+  top: 50%;
+  transform-origin: center center;
+}
+
+.ring1 {
+  width: 320px;
+  height: 320px;
+  margin-left: -160px;
+  margin-top: -160px;
+  border-color: rgba(0, 212, 255, 0.12);
+  border-top-color: rgba(0, 212, 255, 0.45);
+  animation: spin 12s linear infinite;
+}
+
+.ring2 {
+  width: 360px;
+  height: 360px;
+  margin-left: -180px;
+  margin-top: -180px;
+  border-color: rgba(123, 97, 255, 0.08);
+  border-bottom-color: rgba(123, 97, 255, 0.35);
+  animation: spin 18s linear infinite reverse;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent3);
+  box-shadow: 0 0 8px var(--accent3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ── ABOUT ─────────────────────────────────────────── */
+.about-section {
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-text p {
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 15px;
+}
+
+.about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.highlight-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+}
+
+.highlight-item:last-child {
+  border-bottom: none;
+}
+
+.highlight-item:hover {
+  background: var(--surface);
+}
+
+.highlight-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.highlight-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* ── SKILLS ─────────────────────────────────────────── */
+.skills-section {
+  padding: 80px 0 100px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.skill-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.skill-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+.skill-category {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.skill-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ── APPS TEASER ─────────────────────────────────────── */
+.apps-teaser {
+  padding: 0 0 100px;
+}
+
+.teaser-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 60px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.teaser-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+}
+
+.teaser-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.teaser-desc {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 480px;
+  margin-bottom: 28px;
+  line-height: 1.8;
+}
+
+.book-stack {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.book-spine {
+  width: 28px;
+  border-radius: 3px;
+  animation: bookBounce 2s ease-in-out infinite;
+}
+
+.book-spine:nth-child(1) { height: 120px; }
+.book-spine:nth-child(2) { height: 90px; }
+.book-spine:nth-child(3) { height: 140px; }
+.book-spine:nth-child(4) { height: 75px; }
+.book-spine:nth-child(5) { height: 110px; }
+
+@keyframes bookBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 900px) {
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-visual { order: -1; }
+  .hero-role { text-align: left; }
+  .hero-cta, .hero-socials { justify-content: center; }
+  .hero-bio { margin: 0 auto 36px; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .hero-name { white-space: normal; font-size: clamp(2.4rem, 10vw, 3.5rem); }
+  .teaser-card {
+    grid-template-columns: 1fr;
+    padding: 36px;
+  }
+  .book-stack { display: none; }
+}
