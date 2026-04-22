@@ -26,7 +26,7 @@
       "short_name": "POS",
       "description": "Open the POS screen directly",
       "url": "/#/apps/bookshelf",
-      "icons": [{ "src": "/icons/icon-96.png", "sizes": "96x96" }]
+      "icons": [{ "src": "/icons/kh.png", "sizes": "96x96" }]
     }
   ],
   "screenshots": []
