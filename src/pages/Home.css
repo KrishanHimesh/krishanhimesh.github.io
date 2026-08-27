@@ -1,8 +1,31 @@
 /* ── HERO ─────────────────────────────────────────── */
 .hero {
-  padding: 120px 0 80px;
+  padding: 160px 0 80px;
   position: relative;
   overflow: hidden;
+}
+
+.hero-greeting,
+.hero-role,
+.hero-bio,
+.hero-cta,
+.hero-socials {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.hero-in .hero-greeting { transition-delay: 0.3s; }
+.hero-in .hero-role     { transition-delay: 0.4s; }
+.hero-in .hero-bio      { transition-delay: 0.5s; }
+.hero-in .hero-cta      { transition-delay: 0.6s; }
+.hero-in .hero-socials  { transition-delay: 0.7s; }
+.hero-in .hero-greeting,
+.hero-in .hero-role,
+.hero-in .hero-bio,
+.hero-in .hero-cta,
+.hero-in .hero-socials {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .hero::before {
@@ -35,17 +58,35 @@
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 6.5vw, 5.2rem);
-  font-weight: 720;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  margin-bottom: 20px;
-  white-space: nowrap;
+  font-size: clamp(2.8rem, 8vw, 6.4rem);
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.hero-name-line {
+  display: block;
+  overflow: hidden;
+}
+
+.hero-name-line span {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 0.9s var(--ease);
+}
+
+.hero-in .hero-name-line span {
+  transform: translateY(0);
+}
+
+.hero-name-line:nth-child(2) span {
+  transition-delay: 0.12s;
 }
 
 .name-accent {
   color: var(--accent);
-  -webkit-text-stroke: 1px var(--accent);
 }
 
 .hero-role {
@@ -472,7 +513,7 @@
   .hero-cta, .hero-socials { justify-content: center; }
   .hero-bio { margin: 0 auto 36px; }
   .skills-grid { grid-template-columns: 1fr; }
-  .hero-name { white-space: normal; font-size: clamp(2.4rem, 10vw, 3.5rem); }
+  .hero-name { font-size: clamp(2.4rem, 14vw, 3.6rem); }
   .teaser-card {
     grid-template-columns: 1fr;
     padding: 36px;

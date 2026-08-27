@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Cursor from './components/Cursor';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Apps from './pages/Apps';
@@ -18,6 +19,7 @@ function App() {
       {/* All other pages use portfolio layout */}
       <Route path="/*" element={
         <div className="app">
+          <Cursor />
           <Navbar />
           <main className="main-content">
             <Routes>

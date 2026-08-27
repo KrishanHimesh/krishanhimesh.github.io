@@ -22,33 +22,47 @@
 .section-label {
   font-family: var(--font-mono);
   font-size: 11px;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+  display: inline-block;
 }
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-size: clamp(2.2rem, 6vw, 4rem);
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
   color: var(--text);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 24px;
-  border-radius: 6px;
+  padding: 14px 28px;
+  border-radius: 100px;
   font-family: var(--font-mono);
   font-size: 13px;
   letter-spacing: 0.05em;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease), color 0.35s var(--ease);
   border: none;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-primary {
@@ -58,30 +72,63 @@
 }
 
 .btn-primary:hover {
-  background: #22e0ff;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.3);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(204, 255, 0, 0.28);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--accent);
-  border: 1px solid var(--accent);
+  color: var(--text);
+  border: 1px solid var(--border);
 }
 
 .btn-outline:hover {
-  background: rgba(0, 212, 255, 0.08);
-  transform: translateY(-2px);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-3px);
 }
 
 .tag {
   display: inline-block;
-  padding: 4px 12px;
+  padding: 5px 14px;
   border-radius: 100px;
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.05em;
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(204, 255, 0, 0.08);
   color: var(--accent);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  border: 1px solid rgba(204, 255, 0, 0.2);
+}
+
+/* shared status badge (used on Home + Apps pages) */
+.app-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(52, 211, 153, 0.08);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--accent3);
+}
+
+.app-status-badge.live {
+  background: rgba(204, 255, 0, 0.08);
+  border: 1px solid rgba(204, 255, 0, 0.35);
+  color: var(--accent);
+}
+
+.status-dot.live-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }

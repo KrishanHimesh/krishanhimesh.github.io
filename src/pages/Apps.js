@@ -1,20 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Reveal from '../components/Reveal';
 import './Apps.css';
 
 export default function Apps() {
   return (
     <div className="apps-page page">
       <div className="container">
-        <p className="section-label">// apps</p>
-        <h1 className="section-title">My Applications</h1>
-        <p className="apps-intro">
+        <Reveal><p className="section-label">// apps</p></Reveal>
+        <Reveal delay={1}><h1 className="section-title">My Applications</h1></Reveal>
+        <Reveal delay={2} as="p" className="apps-intro">
           Alongside my cybersecurity work, I build practical software tools.
           These apps are hosted right here on this portfolio.
-        </p>
+        </Reveal>
 
         {/* BOOKSHELF APP — LIVE */}
-        <div className="app-feature-card">
+        <Reveal as="div" delay={3} className="app-feature-card">
           <div className="app-status-badge live">
             <span className="status-dot live-dot" />
             Live — Ready to Use
@@ -30,7 +31,7 @@ export default function Apps() {
               </svg>
             </div>
             <div className="app-feature-text">
-              <h2 className="app-feature-title">BookShelf — POS & Inventory system</h2>
+              <h2 className="app-feature-title">TechnoPOS — POS & Inventory system</h2>
               <p className="app-feature-subtitle">Point of Sale · Stock Management · Sales Reports</p>
               <p className="app-feature-desc">
                 A full-featured inventory and point-of-sale system built for my small bookshop.
@@ -65,7 +66,7 @@ export default function Apps() {
 
               <div className="app-cta">
                 <Link to="/apps/bookshelf" className="btn btn-primary">
-                  🚀 Launch BookShelf
+                  🚀 Launch TechnoPOS
                 </Link>
                 <a
                   href="https://github.com/KrishanHimesh/krishanhimesh.github.io"
@@ -78,21 +79,89 @@ export default function Apps() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
 
-        {/* PLACEHOLDER SLOTS */}
-        <div className="more-apps">
-          <p className="section-label" style={{ marginTop: 0 }}>// more to come</p>
-          <div className="placeholder-grid">
-            {['App Slot #2', 'App Slot #3'].map((label) => (
-              <div key={label} className="placeholder-card">
-                <div className="placeholder-icon">+</div>
-                <p className="placeholder-label">{label}</p>
-                <p className="placeholder-hint">Future app — stay tuned</p>
-              </div>
+        {/* BUSINESS APPS — BUILT FOR TECHNOVIA */}
+        <Reveal as="div" className="ext-apps-section">
+          <p className="section-label" style={{ marginTop: 0 }}>// business apps</p>
+          <h2 className="section-title" style={{ fontSize: 'clamp(1.6rem, 4vw, 2.4rem)' }}>
+            Built for Technovia
+          </h2>
+          <p className="apps-intro" style={{ marginBottom: 40 }}>
+            Software I've built and shipped for my business, Technovia — live and in daily use.
+          </p>
+
+          <div className="ext-apps-grid">
+            {[
+              {
+                name: 'TechnoPOS',
+                color: '#a78bfa',
+                tagline: 'Retail & business management platform',
+                features: [
+                  'Manage inventory and stock levels',
+                  'Track sales, orders, and transactions',
+                  'Access real-time business reports',
+                  'Manage customers and supplier records',
+                ],
+              },
+              {
+                name: 'ChairTime',
+                color: '#38bdf8',
+                tagline: 'Smart booking & appointment management',
+                features: [
+                  'Online appointment booking 24/7',
+                  'Manage staff schedules & availability',
+                  'Automatic booking confirmations & reminders',
+                  'Reduce no-shows with easy rescheduling',
+                ],
+              },
+              {
+                name: 'InvoiceGen',
+                color: '#34d399',
+                tagline: 'Fast, professional invoicing',
+                features: [
+                  'Create and send professional invoices',
+                  'Download PDF invoices instantly',
+                  'Save client details for faster invoicing',
+                  'Track invoice status and records',
+                ],
+              },
+              {
+                name: 'WFHly',
+                color: '#a78bfa',
+                tagline: 'Work-from-home tracking & expenses',
+                features: [
+                  'Log work-from-home hours automatically',
+                  'Track home-office expenses & claims',
+                  'Visual breakdown of time & spend',
+                  'Exportable summaries for tax time',
+                ],
+              },
+            ].map(({ name, color, tagline, features }, i) => (
+              <Reveal as="div" delay={Math.min(i + 1, 4)} className="ext-app-card" key={name}>
+                <h3 className="ext-app-title" style={{ color }}>{name}</h3>
+                <p className="ext-app-tagline">{tagline}</p>
+                <ul className="ext-app-features">
+                  {features.map(f => (
+                    <li key={f}>
+                      <span className="ext-app-dot" style={{ background: color }} />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="https://technovia.com.au/apps"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ext-app-btn"
+                  style={{ background: color }}
+                >
+                  Open {name} →
+                </a>
+              </Reveal>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
     </div>
   );

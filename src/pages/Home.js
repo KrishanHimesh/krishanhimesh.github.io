@@ -1,6 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import Reveal from '../components/Reveal';
 import './Home.css';
+
+const marqueeItems = [
+  'Network Security', 'Cybersecurity', 'Cloud Infrastructure', 'AI Integration',
+  'TechnoPOS', 'React', 'Python', 'Open to Work',
+];
 
 const skills = [
   { category: 'Security', items: ['Network Security', 'Threat Analysis', 'Encryption', 'Cybersecurity Principles'] },
@@ -15,13 +21,7 @@ export default function Home() {
   useEffect(() => {
     const el = heroRef.current;
     if (!el) return;
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    requestAnimationFrame(() => {
-      el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-      el.style.opacity = '1';
-      el.style.transform = 'translateY(0)';
-    });
+    el.classList.add('hero-in');
   }, []);
 
   return (
@@ -58,7 +58,8 @@ export default function Home() {
                 <span className="mono-label">$ whoami</span>
               </p>
               <h1 className="hero-name">
-                Krishan <span className="name-accent">Himesh</span>
+                <span className="hero-name-line"><span>Krishan</span></span>
+                <span className="hero-name-line"><span className="name-accent">Himesh</span></span>
               </h1>
               <p className="hero-role">
                 Network &amp; Cybersecurity Graduate
@@ -74,7 +75,7 @@ export default function Home() {
                     href="https://docs.google.com/gview?embedded=1&url=https://raw.githubusercontent.com/KrishanHimesh/krishanhimesh.github.io/main/files/KrishanHimeshAbeyrathne.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-outline"lassName="btn btn-outline"
+                    className="btn btn-outline"
                 >
                   Resume ↗
                 </a>
@@ -98,13 +99,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* MARQUEE STRIP */}
+      <div className="marquee">
+        <div className="marquee-track">
+          {[...marqueeItems, ...marqueeItems].map((item, i) => (
+            <span className="marquee-item" key={i}>
+              {item} <span className="dot">●</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* ABOUT */}
       <section className="about-section">
         <div className="container">
-          <p className="section-label">// about me</p>
-          <h2 className="section-title">Who I Am</h2>
+          <Reveal><p className="section-label">// about me</p></Reveal>
+          <Reveal delay={1}><h2 className="section-title">Who I Am</h2></Reveal>
           <div className="about-grid">
-            <div className="about-text">
+            <Reveal as="div" className="about-text">
               <p>
                 I am a recent graduate in Network and Cybersecurity with a strong foundation
                 in IT principles, infrastructure design, and emerging technologies.
@@ -112,16 +124,17 @@ export default function Home() {
                 building cloud-connected IoT systems, and developing AI-powered applications.
               </p>
               <p>
-                Beyond cybersecurity, I enjoy building software tools — including a bookshop
-                inventory management app currently in development. I thrive at the intersection
-                of security, cloud, and intelligent systems.
+                Beyond cybersecurity, I enjoy building software tools — including{' '}
+                <Link to="/apps" style={{ color: 'var(--accent)' }}>TechnoPOS</Link>, a live
+                POS &amp; inventory app I built and run for a small bookshop. I thrive at the
+                intersection of security, cloud, and intelligent systems.
               </p>
               <p>
                 I am eager to contribute to an entry-level role in network engineering or
                 cybersecurity where I can grow, collaborate, and make a real impact.
               </p>
-            </div>
-            <div className="about-highlights">
+            </Reveal>
+            <Reveal as="div" delay={2} className="about-highlights">
               {[
                 { label: 'Degree', value: 'Network & Cybersecurity' },
                 { label: 'Location', value: 'Australia' },
@@ -134,7 +147,7 @@ export default function Home() {
                   <span className="highlight-value">{value}</span>
                 </div>
               ))}
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -142,11 +155,11 @@ export default function Home() {
       {/* SKILLS */}
       <section className="skills-section">
         <div className="container">
-          <p className="section-label">// skills</p>
-          <h2 className="section-title">Technical Stack</h2>
+          <Reveal><p className="section-label">// skills</p></Reveal>
+          <Reveal delay={1}><h2 className="section-title">Technical Stack</h2></Reveal>
           <div className="skills-grid">
-            {skills.map(({ category, items }) => (
-              <div className="skill-card" key={category}>
+            {skills.map(({ category, items }, i) => (
+              <Reveal as="div" delay={Math.min(i + 1, 4)} className="skill-card" key={category}>
                 <h3 className="skill-category">{category}</h3>
                 <ul className="skill-list">
                   {items.map(item => (
@@ -156,7 +169,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -165,24 +178,31 @@ export default function Home() {
       {/* APPS TEASER */}
       <section className="apps-teaser">
         <div className="container">
-          <div className="teaser-card">
+          <Reveal as="div" className="teaser-card">
             <div className="teaser-content">
-              <p className="section-label">// coming soon</p>
-              <h2 className="teaser-title">BookShelf — Inventory App</h2>
-              <p className="teaser-desc">
-                A full-stack inventory management system built for my small bookshop business.
-                Track stock, manage sales, and generate reports — all from one place.
+              <p className="app-status-badge live" style={{ marginBottom: 18 }}>
+                <span className="status-dot live-dot" />
+                Live App — Ready to Use
               </p>
-              <Link to="/apps" className="btn btn-outline">See What's Coming →</Link>
+              <h2 className="teaser-title">TechnoPOS — POS &amp; Inventory App</h2>
+              <p className="teaser-desc">
+                A full inventory management and point-of-sale system I built and run for my
+                small bookshop — Unity Book Shop. Track stock, ring up sales, and generate
+                reports, all from one place, running right here on this site.
+              </p>
+              <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+                <Link to="/apps/bookshelf" className="btn btn-primary">🚀 Launch TechnoPOS</Link>
+                <Link to="/apps" className="btn btn-outline">See All My Apps →</Link>
+              </div>
             </div>
             <div className="teaser-graphic">
               <div className="book-stack">
-                {['#00d4ff', '#7b61ff', '#00ff9d', '#ff6b6b', '#ffd93d'].map((c, i) => (
+                {['#ccff00', '#38bdf8', '#818cf8', '#34d399', '#ff6b6b'].map((c, i) => (
                   <div key={i} className="book-spine" style={{ background: c, animationDelay: `${i * 0.15}s` }} />
                 ))}
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
     </div>
