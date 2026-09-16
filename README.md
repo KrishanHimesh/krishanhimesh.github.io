@@ -79,9 +79,6 @@ npm run deploy
 ---
 
 ## EmailJS is already configured ✅
-- Service ID:  service_1m0rsbz
-- Template ID: template_ayyxvp9
-- Public Key:  APi_ENA19Ymke5qUI
 
 ---
 
