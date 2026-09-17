@@ -2,6 +2,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .main-content {
@@ -11,6 +12,17 @@
 .page {
   min-height: calc(100vh - 70px);
   padding: 80px 0 60px;
+}
+
+/* Page content paints above the fixed NetworkBackground canvas (z-index 0).
+   .navbar is intentionally excluded here — Navbar.css already sets it to
+   position: fixed with its own z-index, and this rule was overriding that
+   (same specificity, loaded later), which is why the header wasn't staying
+   locked and a gap opened up between it and the hero content. */
+.main-content,
+.footer {
+  position: relative;
+  z-index: 1;
 }
 
 .container {
@@ -73,7 +85,7 @@
 
 .btn-primary:hover {
   transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 12px 30px rgba(204, 255, 0, 0.28);
+  box-shadow: 0 12px 30px rgba(101, 163, 13, 0.28);
 }
 
 .btn-outline {
@@ -95,9 +107,9 @@
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.05em;
-  background: rgba(204, 255, 0, 0.08);
+  background: rgba(101, 163, 13, 0.08);
   color: var(--accent);
-  border: 1px solid rgba(204, 255, 0, 0.2);
+  border: 1px solid rgba(101, 163, 13, 0.25);
 }
 
 /* shared status badge (used on Home + Apps pages) */
@@ -106,8 +118,8 @@
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
-  background: rgba(52, 211, 153, 0.08);
-  border: 1px solid rgba(52, 211, 153, 0.25);
+  background: rgba(5, 150, 105, 0.08);
+  border: 1px solid rgba(5, 150, 105, 0.25);
   border-radius: 100px;
   font-family: var(--font-mono);
   font-size: 11px;
@@ -116,8 +128,8 @@
 }
 
 .app-status-badge.live {
-  background: rgba(204, 255, 0, 0.08);
-  border: 1px solid rgba(204, 255, 0, 0.35);
+  background: rgba(101, 163, 13, 0.1);
+  border: 1px solid rgba(101, 163, 13, 0.35);
   color: var(--accent);
 }
 

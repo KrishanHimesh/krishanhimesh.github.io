@@ -1,0 +1,52 @@
+/* "R" style — faint grid + sparse falling 0/1 columns. Kept deliberately
+   quiet: low opacity, slow fall, no mouse tracking, one accent color. */
+.network-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.network-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(100, 116, 139, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(100, 116, 139, 0.09) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 30%, #000 40%, transparent 92%);
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 30%, #000 40%, transparent 92%);
+}
+
+.glyph-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.glyph-col {
+  position: absolute;
+  top: -220px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(2, 132, 199, 0.32);
+  white-space: pre;
+  animation-name: glyphFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes glyphFall {
+  to { transform: translateY(calc(100vh + 220px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glyph-col { display: none; }
+}
+
+@media (max-width: 700px) {
+  .glyph-col { font-size: 10px; opacity: 0.7; }
+}

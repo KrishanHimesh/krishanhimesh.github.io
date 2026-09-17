@@ -2,6 +2,50 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
 import './Home.css';
+import './Apps.css';
+
+const businessApps = [
+  {
+    name: 'TechnoPOS',
+    color: '#7c3aed',
+    url: 'https://app.technovia.com.au',
+    tagline: 'Retail & business management platform',
+    features: [
+      'Manage inventory and stock levels',
+      'Track sales, orders, and transactions',
+    ],
+  },
+  {
+    name: 'ChairTime',
+    color: '#0284c7',
+    url: 'https://booking.technovia.com.au',
+    tagline: 'Smart booking & appointment management',
+    features: [
+      'Online appointment booking 24/7',
+      'Manage staff schedules & availability',
+    ],
+  },
+  {
+    name: 'InvoiceGen',
+    color: '#059669',
+    url: 'https://invoice.technovia.com.au',
+    tagline: 'Fast, professional invoicing',
+    features: [
+      'Create and send professional invoices',
+      'Track invoice status and records',
+    ],
+  },
+  {
+    name: 'WFHly',
+    color: '#7c3aed',
+    url: 'https://wfh.technovia.com.au',
+    tagline: 'Work-from-home tracking & expenses',
+    features: [
+      'Log work-from-home hours automatically',
+      'Track home-office expenses & claims',
+    ],
+  },
+];
 
 const marqueeItems = [
   'Network Security', 'Cybersecurity', 'Cloud Infrastructure', 'AI Integration',
@@ -28,32 +72,17 @@ export default function Home() {
     <div className="home page">
       {/* HERO */}
       <section className="hero" ref={heroRef}>
+        <div className="hero-photo" aria-hidden="true">
+          <img
+            src={process.env.PUBLIC_URL + '/krishan.png'}
+            alt=""
+            onError={e => { e.target.style.display = 'none'; }}
+          />
+        </div>
+
         <div className="container">
           <div className="hero-grid">
             <div className="hero-text">
-              <div className="hero-visual">
-              <div className="photo-card">
-                <div className="photo-frame">
-                  <img
-                    src="https://raw.githubusercontent.com/KrishanHimesh/krishanhimesh.github.io/main/files/krishan.jpg"
-                    alt="Krishan Himesh"
-                    className="photo-img"
-                    onError={e => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'flex';
-                    }}
-                  />
-                  <div className="photo-fallback">KH</div>
-                </div>
-                <div className="photo-card-glow" />
-                <div className="ring ring1" />
-                <div className="ring ring2" />
-              </div>
-              <div className="status-badge">
-                <span className="status-dot" />
-                Open to opportunities
-              </div>
-            </div>
               <p className="hero-greeting">
                 <span className="mono-label">$ whoami</span>
               </p>
@@ -61,6 +90,10 @@ export default function Home() {
                 <span className="hero-name-line"><span>Krishan</span></span>
                 <span className="hero-name-line"><span className="name-accent">Himesh</span></span>
               </h1>
+              <div className="status-badge status-badge-inline">
+                <span className="status-dot" />
+                Open to opportunities
+              </div>
               <p className="hero-role">
                 Network &amp; Cybersecurity Graduate
               </p>
@@ -93,8 +126,6 @@ export default function Home() {
                 </a>
               </div>
             </div>
-
-            
           </div>
         </div>
       </section>
@@ -203,6 +234,44 @@ export default function Home() {
               </div>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* MY APPS — DIRECT LINKS */}
+      <section className="ext-apps-section">
+        <div className="container">
+          <Reveal><p className="section-label">// my apps</p></Reveal>
+          <Reveal delay={1}><h2 className="section-title">Built for Technovia</h2></Reveal>
+          <Reveal delay={2} as="p" className="apps-intro" style={{ marginBottom: 40 }}>
+            Software I've built and shipped for my business, Technovia — live and in daily use.
+            Jump straight in below.
+          </Reveal>
+
+          <div className="ext-apps-grid">
+            {businessApps.map(({ name, color, url, tagline, features }, i) => (
+              <Reveal as="div" delay={Math.min(i + 1, 4)} className="ext-app-card" key={name}>
+                <h3 className="ext-app-title" style={{ color }}>{name}</h3>
+                <p className="ext-app-tagline">{tagline}</p>
+                <ul className="ext-app-features">
+                  {features.map(f => (
+                    <li key={f}>
+                      <span className="ext-app-dot" style={{ background: color }} />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ext-app-btn"
+                  style={{ background: color }}
+                >
+                  Open {name} →
+                </a>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
     </div>

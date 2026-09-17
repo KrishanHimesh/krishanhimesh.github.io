@@ -95,7 +95,8 @@ export default function Apps() {
             {[
               {
                 name: 'TechnoPOS',
-                color: '#a78bfa',
+                color: '#7c3aed',
+                url: 'https://app.technovia.com.au',
                 tagline: 'Retail & business management platform',
                 features: [
                   'Manage inventory and stock levels',
@@ -106,7 +107,8 @@ export default function Apps() {
               },
               {
                 name: 'ChairTime',
-                color: '#38bdf8',
+                color: '#0284c7',
+                url: 'https://booking.technovia.com.au',
                 tagline: 'Smart booking & appointment management',
                 features: [
                   'Online appointment booking 24/7',
@@ -117,7 +119,8 @@ export default function Apps() {
               },
               {
                 name: 'InvoiceGen',
-                color: '#34d399',
+                color: '#059669',
+                url: 'https://invoice.technovia.com.au',
                 tagline: 'Fast, professional invoicing',
                 features: [
                   'Create and send professional invoices',
@@ -128,7 +131,8 @@ export default function Apps() {
               },
               {
                 name: 'WFHly',
-                color: '#a78bfa',
+                color: '#7c3aed',
+                url: 'https://wfh.technovia.com.au',
                 tagline: 'Work-from-home tracking & expenses',
                 features: [
                   'Log work-from-home hours automatically',
@@ -137,7 +141,7 @@ export default function Apps() {
                   'Exportable summaries for tax time',
                 ],
               },
-            ].map(({ name, color, tagline, features }, i) => (
+            ].map(({ name, color, url, tagline, features }, i) => (
               <Reveal as="div" delay={Math.min(i + 1, 4)} className="ext-app-card" key={name}>
                 <h3 className="ext-app-title" style={{ color }}>{name}</h3>
                 <p className="ext-app-tagline">{tagline}</p>
@@ -150,7 +154,7 @@ export default function Apps() {
                   ))}
                 </ul>
                 <a
-                  href="https://technovia.com.au/apps"
+                  href={url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="ext-app-btn"
