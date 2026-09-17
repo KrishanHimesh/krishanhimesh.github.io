@@ -59,6 +59,20 @@
   color: var(--text);
   margin-bottom: 24px;
   text-transform: uppercase;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: clamp(1.4rem, 8vw, 2rem);
+  }
+}
+
+@media (max-width: 380px) {
+  .section-title {
+    font-size: clamp(1.2rem, 8vw, 1.7rem);
+  }
 }
 
 .btn {

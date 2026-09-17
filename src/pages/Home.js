@@ -87,10 +87,10 @@ export default function Home() {
     <div className="home page">
       {/* HERO */}
       <section className="hero" ref={heroRef}>
-        <div className="hero-photo" aria-hidden="true">
+        <div className="hero-photo">
           <img
             src={process.env.PUBLIC_URL + '/krishan.png'}
-            alt=""
+            alt="Krishan Himesh"
             onError={e => { e.target.style.display = 'none'; }}
           />
         </div>
@@ -119,7 +119,7 @@ export default function Home() {
               <div className="hero-cta">
                 <Link to="/projects" className="btn btn-primary">View Projects</Link>
                 <a
-                    href="https://docs.google.com/gview?embedded=1&url=https://raw.githubusercontent.com/KrishanHimesh/krishanhimesh.github.io/main/files/KrishanHimeshAbeyrathne.pdf"
+                    href={process.env.PUBLIC_URL + '/KrishanHimeshAbeyrathne.pdf'}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-outline"

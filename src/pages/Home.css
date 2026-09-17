@@ -95,8 +95,25 @@
   .hero-photo { width: 40%; opacity: 0.7; }
 }
 
+/* Below 700px there's no room to bleed a large photo behind the text, so
+   instead of hiding it, it drops out of the flow as an absolutely
+   positioned background element and becomes a small, normal-flow photo
+   sitting above the name — DOM order already puts it first. */
 @media (max-width: 700px) {
-  .hero-photo { display: none; }
+  .hero-photo {
+    position: static;
+    width: 140px;
+    height: 140px;
+    flex-shrink: 0;
+    margin: 0 auto 24px;
+    opacity: 1;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(20, 22, 27, 0.08);
+  }
+  .hero-photo img {
+    object-fit: cover;
+    object-position: top center;
+  }
 }
 
 .hero-greeting {
@@ -140,6 +157,7 @@
 
 .hero-name-line span {
   display: inline-block;
+  max-width: 100%;
   transform: translateY(110%);
   transition: transform 0.9s var(--ease);
 }
@@ -516,17 +534,20 @@
 }
 
 @media (max-width: 700px) {
+  .hero {
+    flex-direction: column;
+    align-items: stretch;
+  }
   .hero-grid {
     grid-template-columns: 1fr;
     text-align: center;
   }
   .hero-text { max-width: 100%; }
-  .hero-visual { order: -1; }
   .hero-role { text-align: left; }
   .hero-cta, .hero-socials { justify-content: center; }
   .hero-bio { margin: 0 auto 36px; }
   .skills-grid { grid-template-columns: 1fr; }
-  .hero-name { font-size: clamp(2.4rem, 14vw, 3.6rem); }
+  .hero-name { font-size: clamp(1.7rem, 11vw, 2.6rem); }
   .teaser-card {
     grid-template-columns: 1fr;
     padding: 36px;
@@ -535,4 +556,10 @@
   .experience-card { padding: 22px; }
   .experience-heading { flex-direction: column; gap: 4px; }
   .featured-work-cta { justify-content: center; }
+  .highlight-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .highlight-value { text-align: left; }
 }
