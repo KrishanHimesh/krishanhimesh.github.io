@@ -415,6 +415,97 @@
   50% { transform: translateY(-8px); }
 }
 
+/* ── EXPERIENCE ─────────────────────────────────────── */
+.experience-section {
+  padding: 80px 0 100px;
+  border-top: 1px solid var(--border);
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.experience-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px 32px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.experience-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.experience-heading {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.experience-role {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.experience-company {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+}
+
+.experience-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 18px;
+  max-width: 720px;
+}
+
+.experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.experience-tags .tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  padding: 5px 12px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: rgba(20, 22, 27, 0.04);
+  color: var(--muted);
+}
+
+/* ── FEATURED WORK ─────────────────────────────────────── */
+.featured-work-section {
+  padding: 20px 0 100px;
+}
+
+.featured-work-desc {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 620px;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.featured-work-cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 /* ── RESPONSIVE ─────────────────────────────────────── */
 @media (max-width: 900px) {
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
@@ -441,4 +532,7 @@
     padding: 36px;
   }
   .book-stack { display: none; }
+  .experience-card { padding: 22px; }
+  .experience-heading { flex-direction: column; gap: 4px; }
+  .featured-work-cta { justify-content: center; }
 }

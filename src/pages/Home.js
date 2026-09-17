@@ -47,16 +47,31 @@ const businessApps = [
   },
 ];
 
+const experience = [
+  {
+    company: 'Wavelink',
+    role: 'Partner Experience Coordinator',
+    description: 'Working across partner operations and business systems including NetSuite, HubSpot and Zoho Desk, while contributing to process improvement and automation initiatives. Develop NetSuite workflows and scripting solutions to reduce repetitive tasks, improve efficiency and support scalable operational processes.',
+    tags: ['NetSuite', 'SuiteScript', 'HubSpot', 'Automation', 'Process Improvement'],
+  },
+  {
+    company: 'Wavelink',
+    role: 'Technical Support Intern',
+    description: 'Provided enterprise technical support across networking, mobility and security technologies, with hands-on experience in Microsoft 365, Entra ID, Intune, SOTI, Fortinet, Spectralink and Ekahau.',
+    tags: ['Microsoft 365', 'Entra ID', 'Intune', 'Fortinet', 'Networking'],
+  },
+];
+
 const marqueeItems = [
   'Network Security', 'Cybersecurity', 'Cloud Infrastructure', 'AI Integration',
-  'TechnoPOS', 'React', 'Python', 'Open to Work',
+  'TechnoPOS', 'React', 'Python', 'NetSuite', 'Process Improvement',
 ];
 
 const skills = [
-  { category: 'Security', items: ['Network Security', 'Threat Analysis', 'Encryption', 'Cybersecurity Principles'] },
-  { category: 'Cloud & Infra', items: ['Microsoft Azure', 'AWS', 'VMware', 'VirtualBox', 'Docker', 'Kubernetes'] },
-  { category: 'Networking', items: ['TCP/IP', 'DNS', 'VPN', 'VLANs', 'Firewalls', 'Active Directory'] },
-  { category: 'Dev & AI', items: ['Python', 'Node.js', 'React', 'AI Integration', 'OpenCV', 'Dialogflow'] },
+  { category: 'Systems & Automation', items: [ 'NetSuite / SuiteScript' , 'HubSpot / Zoho Desk' , 'Workflow Automation' , 'Process Improvement' , 'Microsoft 365' , 'Entra ID / Active Directory'] },
+  { category: 'Development & AI', items: ['JavaScript / TypeScript' , 'Python' , 'Node.js' , 'React / Next.js' , 'REST APIs' , 'AI Integration'] },
+  { category: 'Cloud & Infrastructure', items: ['Microsoft Azure' , 'AWS / Google Cloud' , 'Firebase / Supabase' , 'SQL / NoSQL' , 'Docker' , 'VMware'] },
+  { category: 'Networking & Security', items: ['TCP/IP / DNS / DHCP' , 'VLANs / VPN' , 'Fortinet' , 'Firewalls' , 'Intune / SOTI' , 'Network Security'] },
 ];
 
 export default function Home() {
@@ -95,11 +110,10 @@ export default function Home() {
                 Open to opportunities
               </div>
               <p className="hero-role">
-                Network &amp; Cybersecurity Graduate
+                IT Professional | Systems • Automation • Cybersecurity
               </p>
               <p className="hero-bio">
-                Passionate about building secure, scalable systems. Specialising in
-                network engineering, cloud infrastructure, and AI-integrated solutions.
+                IT professional with experience across enterprise systems, technical support, process automation, networking and software development. Currently working at Wavelink, combining operational experience with technology to improve processes and solve real business problems.
                 Based in Australia 🇦🇺
               </p>
               <div className="hero-cta">
@@ -149,28 +163,25 @@ export default function Home() {
           <div className="about-grid">
             <Reveal as="div" className="about-text">
               <p>
-                I am a recent graduate in Network and Cybersecurity with a strong foundation
-                in IT principles, infrastructure design, and emerging technologies.
-                My academic and project experience spans designing enterprise-grade networks,
-                building cloud-connected IoT systems, and developing AI-powered applications.
+                I’m an Information Technology graduate specialising in Cybersecurity, currently working at Wavelink in Melbourne with experience across enterprise systems, technical support, business operations and process automation.
               </p>
               <p>
-                Beyond cybersecurity, I enjoy building software tools — including{' '}
-                <Link to="/apps" style={{ color: 'var(--accent)' }}>TechnoPOS</Link>, a live
-                POS &amp; inventory app I built and run for a small bookshop. I thrive at the
-                intersection of security, cloud, and intelligent systems.
-              </p>
+                My experience includes working with NetSuite, SuiteScript, HubSpot, Microsoft 365, Entra ID, Intune, Fortinet and enterprise networking, as well as identifying process improvements and developing workflow automations.
+              </p>             
               <p>
-                I am eager to contribute to an entry-level role in network engineering or
-                cybersecurity where I can grow, collaborate, and make a real impact.
+                Beyond my professional role, I enjoy building real-world software, including {' '}
+                <Link to="/apps" style={{ color: 'var(--accent)' }}>TechnoPOS</Link>, {' '}
+                <Link to="/apps" style={{ color: 'var(--accent)' }}>ChairTime</Link>, {' '}
+                <Link to="/apps" style={{ color: 'var(--accent)' }}>InvoiceGen</Link> and {' '}
+                <Link to="/apps" style={{ color: 'var(--accent)' }}>WFHly</Link>. My broader technical interests include automation, AI, cybersecurity, networking, cloud technologies and software development.
               </p>
             </Reveal>
             <Reveal as="div" delay={2} className="about-highlights">
               {[
-                { label: 'Degree', value: 'Network & Cybersecurity' },
+                { label: 'Degree', value: 'Information Technology — Cybersecurity' },
                 { label: 'Location', value: 'Australia' },
-                { label: 'Focus', value: 'Network Engineering & Security' },
-                { label: 'Interests', value: 'AI, Blockchain, Cloud' },
+                { label: 'Experience', value: 'Systems • Support • Automation' },
+                { label: 'Interests', value: 'AI, Blockchain, Cloud, APIs' },
                 { label: 'Status', value: 'Open to Work' },
               ].map(({ label, value }) => (
                 <div className="highlight-item" key={label}>
@@ -179,6 +190,30 @@ export default function Home() {
                 </div>
               ))}
             </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* EXPERIENCE */}
+      <section className="experience-section">
+        <div className="container">
+          <Reveal><p className="section-label">// experience</p></Reveal>
+          <Reveal delay={1}><h2 className="section-title">Professional Experience</h2></Reveal>
+          <div className="experience-list">
+            {experience.map(({ company, role, description, tags }, i) => (
+              <Reveal as="div" delay={Math.min(i + 1, 4)} className="experience-card" key={`${company}-${role}`}>
+                <div className="experience-heading">
+                  <h3 className="experience-role">{role}</h3>
+                  <span className="experience-company">{company}</span>
+                </div>
+                <p className="experience-desc">{description}</p>
+                <div className="experience-tags">
+                  {tags.map(t => (
+                    <span key={t} className="tag">{t}</span>
+                  ))}
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -203,6 +238,21 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FEATURED WORK */}
+      <section className="featured-work-section">
+        <div className="container">
+          <Reveal><p className="section-label">// featured work</p></Reveal>
+          <Reveal delay={1}><h2 className="section-title">Technology Built Around Real Problems</h2></Reveal>
+          <Reveal delay={2} as="p" className="featured-work-desc">
+            My work spans business systems, automation, software development, networking and cloud technologies — with a focus on building practical solutions that improve how people and businesses work.
+          </Reveal>
+          <Reveal delay={3} as="div" className="featured-work-cta">
+            <Link to="/projects" className="btn btn-primary">View Projects →</Link>
+            <Link to="/apps" className="btn btn-outline">Explore Live Apps →</Link>
+          </Reveal>
         </div>
       </section>
 
