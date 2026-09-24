@@ -4,39 +4,113 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-    <!-- PWA theme -->
-    <meta name="theme-color" content="#0d1526" />
-    <meta name="background-color" content="#0d1526" />
+    <!-- Theme (matches the site's light theme, not the BookShelf sub-app) -->
+    <meta name="theme-color" content="#f8f9fb" />
+    <meta name="background-color" content="#f8f9fb" />
 
     <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
     <!-- iOS PWA support -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Unity Shop" />
-    <link rel="apple-touch-icon" href="/icons/icon-152.png" />
-    <link rel="apple-touch-icon" sizes="72x72"   href="/icons/icon-72.png" />
-    <link rel="apple-touch-icon" sizes="96x96"   href="/icons/icon-96.png" />
-    <link rel="apple-touch-icon" sizes="128x128" href="/icons/icon-128.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152.png" />
-    <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192.png" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Krishan Himesh" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icons/icon-180.png" />
+    <link rel="apple-touch-icon" sizes="72x72"   href="%PUBLIC_URL%/icons/icon-72.png" />
+    <link rel="apple-touch-icon" sizes="96x96"   href="%PUBLIC_URL%/icons/icon-96.png" />
+    <link rel="apple-touch-icon" sizes="128x128" href="%PUBLIC_URL%/icons/icon-128.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="%PUBLIC_URL%/icons/icon-144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="%PUBLIC_URL%/icons/icon-152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/icons/icon-180.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="%PUBLIC_URL%/icons/icon-192.png" />
 
     <!-- Microsoft / Windows -->
-    <meta name="msapplication-TileImage" content="/icons/icon-144.png" />
-    <meta name="msapplication-TileColor" content="#0d1526" />
+    <meta name="msapplication-TileImage" content="%PUBLIC_URL%/icons/icon-144.png" />
+    <meta name="msapplication-TileColor" content="#f8f9fb" />
 
-    <!-- SEO -->
-    <meta name="description" content="Unity Book Shop — POS & Inventory Management" />
-    <link rel="icon" href="/icons/kh.png" />
+    <!-- Favicons -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/icons/icon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/icons/icon-16.png" />
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%/icons/kh.png" />
 
-    <title>Krishan Himesh</title>
+    <!-- Primary SEO -->
+    <title>Krishan Himesh — IT Professional | Systems, Automation &amp; Cybersecurity</title>
+    <meta name="description" content="Krishan Himesh is an IT professional based in Australia specialising in business systems, automation, networking and cybersecurity. Currently at Wavelink, working across NetSuite, HubSpot and enterprise IT. Open to new opportunities — get in touch." />
+    <meta name="keywords" content="Krishan Himesh, IT professional, systems automation, NetSuite developer, SuiteScript, cybersecurity, network engineer, Wavelink, IT support Australia, software developer portfolio" />
+    <meta name="author" content="Krishan Himesh Abeyrathne" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://krishanhimesh.github.io/" />
+
+    <!-- Open Graph / Facebook, LinkedIn, WhatsApp, Slack link previews -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Krishan Himesh" />
+    <meta property="og:url" content="https://krishanhimesh.github.io/" />
+    <meta property="og:title" content="Krishan Himesh — IT Professional | Systems, Automation & Cybersecurity" />
+    <meta property="og:description" content="IT professional with experience across enterprise systems, technical support, process automation, networking and software development. Currently at Wavelink. Based in Australia — open to opportunities." />
+    <meta property="og:image" content="https://krishanhimesh.github.io/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Krishan Himesh — IT Professional, Systems, Automation & Cybersecurity" />
+    <meta property="og:locale" content="en_AU" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Krishan Himesh — IT Professional | Systems, Automation & Cybersecurity" />
+    <meta name="twitter:description" content="IT professional with experience across enterprise systems, technical support, process automation, networking and software development. Based in Australia — open to opportunities." />
+    <meta name="twitter:image" content="https://krishanhimesh.github.io/og-image.png" />
+
+    <!-- Structured data: helps Google understand this is a person/professional profile -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Krishan Himesh Abeyrathne",
+        "alternateName": "Krishan Himesh",
+        "url": "https://krishanhimesh.github.io/",
+        "image": "https://krishanhimesh.github.io/og-image.png",
+        "jobTitle": "Partner Experience Coordinator",
+        "description": "IT professional specialising in business systems, automation, networking and cybersecurity.",
+        "email": "mailto:krishanhimesh@gmail.com",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Wavelink"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "AU"
+        },
+        "sameAs": [
+          "https://github.com/KrishanHimesh",
+          "https://www.linkedin.com/in/krishan-himesh-723a42a7"
+        ],
+        "knowsAbout": [
+          "NetSuite", "SuiteScript", "Cybersecurity", "Networking",
+          "Cloud Infrastructure", "Process Automation", "Software Development"
+        ]
+      }
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+    <!-- Other half of the 404.html SPA redirect trick: restores the real
+         URL (e.g. /projects) via pushState before React Router mounts,
+         so direct links and refreshes on any route work on GitHub Pages. -->
+    <script>
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          }).join('?');
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location));
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

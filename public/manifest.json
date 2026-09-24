@@ -1,15 +1,15 @@
 {
-  "name": "Unity Book Shop",
-  "short_name": "Unity Shop",
-  "description": "POS & Inventory Management for Unity Book Shop",
-  "start_url": "/#/apps/bookshelf",
+  "name": "Krishan Himesh — IT Professional Portfolio",
+  "short_name": "Krishan Himesh",
+  "description": "Portfolio of Krishan Himesh — IT professional specialising in business systems, automation, networking and cybersecurity.",
+  "start_url": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#0d1526",
-  "theme_color": "#0d1526",
+  "background_color": "#f8f9fb",
+  "theme_color": "#f8f9fb",
   "lang": "en-AU",
   "scope": "/",
-  "categories": ["business", "productivity", "utilities"],
+  "categories": ["business", "portfolio", "technology"],
   "icons": [
     { "src": "/icons/icon-72.png",   "sizes": "72x72",     "type": "image/png", "purpose": "maskable any" },
     { "src": "/icons/icon-96.png",   "sizes": "96x96",     "type": "image/png", "purpose": "maskable any" },
@@ -22,10 +22,10 @@
   ],
   "shortcuts": [
     {
-      "name": "Point of Sale",
+      "name": "Point of Sale (Unity Book Shop)",
       "short_name": "POS",
-      "description": "Open the POS screen directly",
-      "url": "/#/apps/bookshelf",
+      "description": "Open the Unity Book Shop POS screen directly",
+      "url": "/apps/bookshelf",
       "icons": [{ "src": "/icons/kh.png", "sizes": "96x96" }]
     }
   ],

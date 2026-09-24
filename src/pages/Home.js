@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
+import useDocumentMeta from '../hooks/useDocumentMeta';
 import './Home.css';
 import './Apps.css';
 
@@ -68,7 +69,7 @@ const marqueeItems = [
 ];
 
 const skills = [
-  { category: 'Systems & Automation', items: [ 'NetSuite / SuiteScript' , 'HubSpot / Zoho Desk' , 'Workflow Automation' , 'Process Improvement' , 'Microsoft 365' , 'Entra ID / Active Directory'] },
+  { category: 'Systems & Automation', items: [ 'NetSuite / SuiteScript' , 'HubSpot / Zoho Desk' , 'Workflow Automation' , 'Process Improvement' , 'Microsoft 365' , 'Entra ID / Active Directory' , 'Power BI'] },
   { category: 'Development & AI', items: ['JavaScript / TypeScript' , 'Python' , 'Node.js' , 'React / Next.js' , 'REST APIs' , 'AI Integration'] },
   { category: 'Cloud & Infrastructure', items: ['Microsoft Azure' , 'AWS / Google Cloud' , 'Firebase / Supabase' , 'SQL / NoSQL' , 'Docker' , 'VMware'] },
   { category: 'Networking & Security', items: ['TCP/IP / DNS / DHCP' , 'VLANs / VPN' , 'Fortinet' , 'Firewalls' , 'Intune / SOTI' , 'Network Security'] },
@@ -76,6 +77,12 @@ const skills = [
 
 export default function Home() {
   const heroRef = useRef(null);
+
+  useDocumentMeta({
+    title: 'IT Professional | Systems, Automation & Cybersecurity',
+    description: 'Krishan Himesh is an IT professional based in Australia specialising in business systems, automation, networking and cybersecurity. Currently at Wavelink — open to new opportunities.',
+    path: '/',
+  });
 
   useEffect(() => {
     const el = heroRef.current;

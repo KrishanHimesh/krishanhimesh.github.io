@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import useDocumentMeta from '../hooks/useDocumentMeta';
 import './Projects.css';
 
 const projects = [
@@ -89,6 +90,12 @@ const categories = ['All', 'Networking', 'IoT & Cloud', 'AI & Dev', 'Security'];
 export default function Projects() {
   const [active, setActive] = useState('All');
   const [expanded, setExpanded] = useState(null);
+
+  useDocumentMeta({
+    title: 'Projects',
+    description: 'A collection of academic and personal projects by Krishan Himesh spanning network design, cloud infrastructure, AI, and cybersecurity.',
+    path: '/projects',
+  });
 
   const filtered = active === 'All' ? projects : projects.filter(p => p.category === active);
 

@@ -1,9 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
+import useDocumentMeta from '../hooks/useDocumentMeta';
 import './Apps.css';
 
 export default function Apps() {
+  useDocumentMeta({
+    title: 'Apps',
+    description: 'Live software tools and apps built by Krishan Himesh, hosted right here on this portfolio — including TechnoPOS, ChairTime and Unity Book Shop.',
+    path: '/apps',
+  });
+
   return (
     <div className="apps-page page">
       <div className="container">

@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import useDocumentMeta from '../hooks/useDocumentMeta';
 import './Contact.css';
 
 // ─── EmailJS Configuration ───────────────────────────────────────────────────
@@ -16,6 +17,12 @@ export default function Contact() {
   const formRef = useRef(null);
   const [form, setForm]     = useState({ name: '', email: '', subject: '', message: '' });
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
+
+  useDocumentMeta({
+    title: 'Contact',
+    description: "Get in touch with Krishan Himesh — IT professional specialising in systems, automation and cybersecurity. Open to new opportunities and inquiries.",
+    path: '/contact',
+  });
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
