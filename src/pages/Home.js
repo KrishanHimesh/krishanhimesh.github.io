@@ -279,7 +279,7 @@ export default function Home() {
                 reports, all from one place, running right here on this site.
               </p>
               <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-                <Link to="/apps/bookshelf" className="btn btn-primary">🚀 Launch TechnoPOS</Link>
+                <a href="https://app.technovia.com.au" target="_blank" rel="noopener noreferrer" className="btn btn-primary">🚀 Launch TechnoPOS</a>
                 <Link to="/apps" className="btn btn-outline">See All My Apps →</Link>
               </div>
             </div>

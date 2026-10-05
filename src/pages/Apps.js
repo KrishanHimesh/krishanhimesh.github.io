@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Reveal from '../components/Reveal';
 import useDocumentMeta from '../hooks/useDocumentMeta';
 import './Apps.css';
@@ -72,9 +71,14 @@ export default function Apps() {
               </div>
 
               <div className="app-cta">
-                <Link to="/apps/bookshelf" className="btn btn-primary">
+                <a
+                  href="https://app.technovia.com.au"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                >
                   🚀 Launch TechnoPOS
-                </Link>
+                </a>
                 <a
                   href="https://github.com/KrishanHimesh/krishanhimesh.github.io"
                   target="_blank"
