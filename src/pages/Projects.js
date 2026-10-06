@@ -18,6 +18,7 @@ const projects = [
     ],
     github: 'https://github.com/KrishanHimesh/KN_University_Network_Design-Cyber_Security_Project_G02',
     color: '#00d4ff',
+    videoId: 'mKui2LEIx7U',
   },
   {
     id: 2,
@@ -34,6 +35,7 @@ const projects = [
     ],
     github: null,
     color: '#7b61ff',
+    videoId: 'seY7TXYplmU',
   },
   {
     id: 3,
@@ -50,6 +52,7 @@ const projects = [
     ],
     github: null,
     color: '#00ff9d',
+    videoId: 'kewKZ5KJDs8',
   },
   {
     id: 4,
@@ -66,6 +69,7 @@ const projects = [
     ],
     github: null,
     color: '#ff6b6b',
+    videoId: null,
   },
   {
     id: 5,
@@ -82,6 +86,7 @@ const projects = [
     ],
     github: 'https://github.com/KrishanHimesh/coit13240y24t1-project-g09',
     color: '#ffd93d',
+    videoId: null,
   },
 ];
 
@@ -140,6 +145,20 @@ export default function Projects() {
                   ))}
                 </div>
               </div>
+
+              {project.videoId && (
+                <div className="card-video">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${project.videoId}`}
+                    title={`${project.title} — video`}
+                    loading="lazy"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                </div>
+              )}
 
               <p className="card-desc">{project.description}</p>
 
