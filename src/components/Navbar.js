@@ -57,7 +57,7 @@ export default function Navbar() {
             ))}
             <li>
               <a
-                href="https://docs.google.com/gview?embedded=1&url=https://raw.githubusercontent.com/KrishanHimesh/krishanhimesh.github.io/main/files/KrishanHimeshAbeyrathne.pdf"
+                href={process.env.PUBLIC_URL + '/KrishanHimeshAbeyrathne.pdf'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="nav-resume"
@@ -99,7 +99,7 @@ export default function Navbar() {
 
           <div className="overlay-footer">
             <a
-              href="https://docs.google.com/gview?embedded=1&url=https://raw.githubusercontent.com/KrishanHimesh/krishanhimesh.github.io/main/files/KrishanHimeshAbeyrathne.pdf"
+              href={process.env.PUBLIC_URL + '/KrishanHimeshAbeyrathne.pdf'}
               target="_blank"
               rel="noopener noreferrer"
               className="overlay-resume"
