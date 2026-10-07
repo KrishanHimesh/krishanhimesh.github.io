@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import Reveal from '../components/Reveal';
 import useDocumentMeta from '../hooks/useDocumentMeta';
 import './Contact.css';
 
@@ -67,16 +68,16 @@ export default function Contact() {
   return (
     <div className="contact-page page">
       <div className="container">
-        <p className="section-label">// get in touch</p>
-        <h1 className="section-title">Contact Me</h1>
-        <p className="contact-intro">
+        <Reveal><p className="section-label">// get in touch</p></Reveal>
+        <Reveal delay={1}><h1 className="section-title">Contact Me</h1></Reveal>
+        <Reveal delay={2} as="p" className="contact-intro">
           Whether you have an opportunity, a collaboration idea, or just want to say hi —
           my inbox is always open.
-        </p>
+        </Reveal>
 
         <div className="contact-grid">
           {/* LEFT — Info */}
-          <div className="contact-info">
+          <Reveal delay={3} className="contact-info">
             <div className="info-block">
               <p className="info-label">Email</p>
               <a href="mailto:krishanhimesh@gmail.com" className="info-value">
@@ -121,10 +122,10 @@ export default function Contact() {
                 <span className="social-card-arrow">↗</span>
               </a>
             </div>
-          </div>
+          </Reveal>
 
           {/* RIGHT — Form */}
-          <div className="contact-form-wrap">
+          <Reveal delay={4} className="contact-form-wrap">
             {status === 'success' ? (
               <div className="form-success">
                 <div className="success-icon">✓</div>
@@ -187,7 +188,7 @@ export default function Contact() {
                 </button>
               </form>
             )}
-          </div>
+          </Reveal>
         </div>
       </div>
     </div>

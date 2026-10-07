@@ -24,6 +24,13 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ''; };
   }, [menuOpen]);
 
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 901px)');
+    const onChange = e => { if (e.matches) setMenuOpen(false); };
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
   const close = () => setMenuOpen(false);
 
   return (
@@ -35,6 +42,30 @@ export default function Navbar() {
             KH
             <span className="logo-bracket">]</span>
           </NavLink>
+
+          <ul className="nav-links">
+            {navItems.map(({ path, label }) => (
+              <li key={path}>
+                <NavLink
+                  to={path}
+                  end={path === '/'}
+                  className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+                >
+                  {label}
+                </NavLink>
+              </li>
+            ))}
+            <li>
+              <a
+                href="https://docs.google.com/gview?embedded=1&url=https://raw.githubusercontent.com/KrishanHimesh/krishanhimesh.github.io/main/files/KrishanHimeshAbeyrathne.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-resume"
+              >
+                Resume ↗
+              </a>
+            </li>
+          </ul>
 
           <button
             className={`menu-toggle ${menuOpen ? 'open' : ''}`}

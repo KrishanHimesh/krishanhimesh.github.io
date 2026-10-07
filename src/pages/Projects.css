@@ -179,3 +179,12 @@
   height: 100%;
   border: 0;
 }
+
+/* Reveal wrapper around each card keeps the grid item full-height */
+.project-reveal {
+  display: flex;
+}
+.project-reveal > .project-card {
+  flex: 1;
+  width: 100%;
+}

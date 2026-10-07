@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Reveal from '../components/Reveal';
 import useDocumentMeta from '../hooks/useDocumentMeta';
 import './Projects.css';
 
@@ -107,14 +108,14 @@ export default function Projects() {
   return (
     <div className="projects-page page">
       <div className="container">
-        <p className="section-label">// my work</p>
-        <h1 className="section-title">Projects</h1>
-        <p className="projects-intro">
+        <Reveal><p className="section-label">// my work</p></Reveal>
+        <Reveal delay={1}><h1 className="section-title">Projects</h1></Reveal>
+        <Reveal delay={2} as="p" className="projects-intro">
           A collection of academic and personal projects spanning network design,
           cloud infrastructure, AI, and cybersecurity.
-        </p>
+        </Reveal>
 
-        <div className="filter-bar">
+        <Reveal delay={3} className="filter-bar">
           {categories.map(cat => (
             <button
               key={cat}
@@ -124,12 +125,12 @@ export default function Projects() {
               {cat}
             </button>
           ))}
-        </div>
+        </Reveal>
 
         <div className="projects-grid">
-          {filtered.map(project => (
+          {filtered.map((project, i) => (
+            <Reveal key={project.id} delay={Math.min((i % 2) + 1, 4)} className="project-reveal">
             <div
-              key={project.id}
               className={`project-card ${expanded === project.id ? 'expanded' : ''}`}
               style={{ '--project-color': project.color }}
             >
@@ -181,6 +182,7 @@ export default function Projects() {
                 )}
               </div>
             </div>
+            </Reveal>
           ))}
         </div>
       </div>
